@@ -15,5 +15,6 @@ __pycache__
 /coverage.xml
 alliance_auth.sqlite3
 
+/aa_permission_management/locale/en/
 .esi-compatibility-date
 .make/myauth-path
