@@ -1,0 +1,36 @@
+{% extends "allianceauth/base-bs5.html" %}
+
+{% load i18n %}
+
+{% block page_title %}
+    {% translate "Permission Management" %}
+{% endblock %}
+
+{% block header_nav_brand %}
+    {% translate "Permission Management" %}
+{% endblock %}
+
+{% block header_nav_collapse_left %}
+    {% include "aa_permission_management/partials/header/header-nav-left.html" %}
+{% endblock %}
+
+
+{#{% block header_nav_collapse_right %}#}
+{#    {% include "aa_permission_management/partials/header/header-nav-right.html" %}#}
+{#{% endblock %}#}
+
+{% block content %}
+    <div class="aa-permission-management">
+        <div class="aa-permission-management-body">
+            <script>
+                const aaPermissionManagamentSettings = {}
+            </script>
+
+            {% block aa_permission_management_body %}{% endblock %}
+        </div>
+
+        <div class="aa-permission-management-footer mt-3 pt-3 border-top border-light">
+            {% include "aa_permission_management/partials/footer/app-translation-footer.html" %}
+        </div>
+    </div>
+{% endblock %}
