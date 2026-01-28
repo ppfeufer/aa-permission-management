@@ -49,7 +49,7 @@ class GroupsTableView(PermissionRequiredMixin, DataTablesView):
     columns = [
         ("group__name", "{{ row.group }}"),
         ("", "{{ row.group.user_set.count }}"),
-        ("", "{{ row.get_permissions_display|safe }}"),
+        ("", "aa_permission_management/partials/datatables/edit-group.html"),
     ]
 
     logger.debug("GroupsTableView initialized with columns: %s", columns)
@@ -85,7 +85,7 @@ class StatesTableView(PermissionRequiredMixin, DataTablesView):
     columns = [
         ("name", "{{ row.name }}"),
         ("", "{{ row.user_count }}"),
-        ("", "{{ row.get_permissions_display|safe }}"),
+        ("", "aa_permission_management/partials/datatables/edit-state.html"),
     ]
 
     logger.debug("StatesTableView initialized with columns: %s", columns)

@@ -1,0 +1,11 @@
+{% load i18n %}
+
+<button
+    class="btn btn-sm btn-default"
+    title="{% translate 'Show/Edit permissions' %}"
+    data-bs-tooltip="aa-permission-management"
+    data-permission-type="{{ permission_type }}"
+    data-element-id="{{ row.pk }}"
+>
+    <i class="fa-solid fa-angles-right fa-fw"></i>
+</button>
