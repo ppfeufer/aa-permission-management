@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: AA Permission Management 0.0.1a1\n"
 "Report-Msgid-Bugs-To: https://github.com/ppfeufer/aa-permission-management/issues\n"
-"POT-Creation-Date: 2026-01-27 23:18+0100\n"
+"POT-Creation-Date: 2026-01-28 16:12+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,9 +18,14 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: aa_permission_management/__init__.py:10
+#: aa_permission_management/models.py:28
 #: aa_permission_management/templates/aa_permission_management/base.html:6
 #: aa_permission_management/templates/aa_permission_management/base.html:10
 msgid "Permission Management"
+msgstr ""
+
+#: aa_permission_management/models.py:25
+msgid "Can access the Permission Management module and manage permissions"
 msgstr ""
 
 #: aa_permission_management/templates/aa_permission_management/partials/footer/app-translation-footer.html:5
@@ -31,4 +36,33 @@ msgstr ""
 
 #: aa_permission_management/templates/aa_permission_management/partials/footer/app-translation-footer.html:8
 msgid "Join our team of translators!"
+msgstr ""
+
+#: aa_permission_management/templates/aa_permission_management/views/dashboard.html:11
+msgid "Groups and States"
+msgstr ""
+
+#: aa_permission_management/templates/aa_permission_management/views/dashboard.html:27
+msgid "Groups"
+msgstr ""
+
+#: aa_permission_management/templates/aa_permission_management/views/dashboard.html:41
+msgid "States"
+msgstr ""
+
+#: aa_permission_management/templates/aa_permission_management/views/dashboard.html:52
+msgid "Group Name"
+msgstr ""
+
+#: aa_permission_management/templates/aa_permission_management/views/dashboard.html:53
+#: aa_permission_management/templates/aa_permission_management/views/dashboard.html:68
+msgid "Member Count"
+msgstr ""
+
+#: aa_permission_management/templates/aa_permission_management/views/dashboard.html:67
+msgid "State Name"
+msgstr ""
+
+#: aa_permission_management/templates/aa_permission_management/views/dashboard.html:84
+msgid "Permissions"
 msgstr ""
