@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: AA Permission Management 0.0.1a1\n"
 "Report-Msgid-Bugs-To: https://github.com/ppfeufer/aa-permission-management/issues\n"
-"POT-Creation-Date: 2026-01-28 16:12+0100\n"
+"POT-Creation-Date: 2026-01-28 22:55+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -38,31 +38,30 @@ msgstr ""
 msgid "Join our team of translators!"
 msgstr ""
 
-#: aa_permission_management/templates/aa_permission_management/views/dashboard.html:11
-msgid "Groups and States"
+#: aa_permission_management/templates/aa_permission_management/views/dashboard.html:9
+msgid "Group name"
 msgstr ""
 
-#: aa_permission_management/templates/aa_permission_management/views/dashboard.html:27
+#: aa_permission_management/templates/aa_permission_management/views/dashboard.html:10
+msgid "State name"
+msgstr ""
+
+#: aa_permission_management/templates/aa_permission_management/views/dashboard.html:11
+msgid "Member count"
+msgstr ""
+
+#: aa_permission_management/templates/aa_permission_management/views/dashboard.html:12
+msgid "Groups and states"
+msgstr ""
+
+#: aa_permission_management/templates/aa_permission_management/views/dashboard.html:13
+msgid "Permissions"
+msgstr ""
+
+#: aa_permission_management/templates/aa_permission_management/views/dashboard.html:14
 msgid "Groups"
 msgstr ""
 
-#: aa_permission_management/templates/aa_permission_management/views/dashboard.html:41
+#: aa_permission_management/templates/aa_permission_management/views/dashboard.html:15
 msgid "States"
-msgstr ""
-
-#: aa_permission_management/templates/aa_permission_management/views/dashboard.html:52
-msgid "Group Name"
-msgstr ""
-
-#: aa_permission_management/templates/aa_permission_management/views/dashboard.html:53
-#: aa_permission_management/templates/aa_permission_management/views/dashboard.html:68
-msgid "Member Count"
-msgstr ""
-
-#: aa_permission_management/templates/aa_permission_management/views/dashboard.html:67
-msgid "State Name"
-msgstr ""
-
-#: aa_permission_management/templates/aa_permission_management/views/dashboard.html:84
-msgid "Permissions"
 msgstr ""

@@ -4,11 +4,20 @@
 {% load i18n %}
 
 {% block aa_permission_management_body %}
+    {% comment %} Translations to variables {% endcomment %}
+    {% translate "Group name" as l10n_group_name %}
+    {% translate "State name" as l10n_state_name %}
+    {% translate "Member count" as l10n_member_count %}
+    {% translate "Groups and states" as l10n_groups_and_states %}
+    {% translate "Permissions" as l10n_permissions %}
+    {% translate "Groups" as l10n_groups %}
+    {% translate "States" as l10n_states %}
+
     <div class="row">
         <div class="col-md-6">
             <div class="card mb-3">
                 <div class="card-header">
-                    {% trans "Groups and States" %}
+                    {{ l10n_groups_and_states }}
                 </div>
 
                 <div class="card-body">
@@ -24,7 +33,7 @@
                                 aria-controls="groups"
                                 aria-selected="true"
                             >
-                                {% trans "Groups" %}
+                                {{ l10n_groups }}
                             </button>
                         </li>
 
@@ -38,7 +47,7 @@
                                 aria-controls="states"
                                 aria-selected="false"
                             >
-                                {% trans "States" %}
+                                {{ l10n_states }}
                             </button>
                         </li>
                     </ul>
@@ -49,8 +58,8 @@
                             <table id="table-groups" class="w-100 table table-striped table-hover">
                                 <thead>
                                     <tr>
-                                        <th>{% translate "Group Name" %}</th>
-                                        <th>{% translate "Member Count" %}</th>
+                                        <th>{{ l10n_group_name|title }}</th>
+                                        <th>{{ l10n_member_count|title }}</th>
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -64,8 +73,8 @@
                             <table id="table-states" class="w-100 table table-striped table-hover">
                                 <thead>
                                     <tr>
-                                        <th>{% translate "State Name" %}</th>
-                                        <th>{% translate "Member Count" %}</th>
+                                        <th>{{ l10n_state_name|title }}</th>
+                                        <th>{{ l10n_member_count|title }}</th>
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -81,7 +90,7 @@
         <div class="col-md-6">
             <div class="card mb-3">
                 <div class="card-header">
-                    {% trans "Permissions" %}
+                    {{ l10n_permissions }}
                 </div>
 
                 <div class="card-body">
