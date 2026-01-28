@@ -1,36 +1,75 @@
 {% extends "allianceauth/base-bs5.html" %}
 
+{% load aa_i18n %}
 {% load i18n %}
 
 {% block page_title %}
     {% translate "Permission Management" %}
-{% endblock %}
+{% endblock page_title %}
 
 {% block header_nav_brand %}
     {% translate "Permission Management" %}
-{% endblock %}
+{% endblock header_nav_brand %}
 
 {% block header_nav_collapse_left %}
     {% include "aa_permission_management/partials/header/header-nav-left.html" %}
-{% endblock %}
-
-
-{#{% block header_nav_collapse_right %}#}
-{#    {% include "aa_permission_management/partials/header/header-nav-right.html" %}#}
-{#{% endblock %}#}
+{% endblock header_nav_collapse_left %}
 
 {% block content %}
     <div class="aa-permission-management">
         <div class="aa-permission-management-body">
+            {% get_datatables_language_static LANGUAGE_CODE as DT_LANG_PATH %}
+
             <script>
-                const aaPermissionManagamentSettings = {}
+                const permissionManagamentSettings = {
+                    dataTable: {
+                        language: {
+                            url: '{{ DT_LANG_PATH }}',
+                            processing: `{% include "framework/datatables/process-indicator.html" %}`
+                        },
+                        layout: { // See: https://datatables.net/reference/option/layout
+                            topStart: 'pageLength',
+                            topEnd: null,
+                            bottomStart: 'info',
+                            bottomEnd: 'paging'
+                        },
+                        ordering: { // See: https://datatables.net/reference/option/ordering
+                            handler: true, // Enable ordering by clicking on column headers
+                            indicators: false, // Disable ordering indicators on column headers (important when ColumnControl is used)
+                        },
+                        processing: true, // Show processing indicator when loading data
+                        serverSide: true, // Enable server-side processing
+                        pageLength: 10, // Override default page length if desired
+                        responsive : true, // Enable responsive extension
+                        columnControl: [
+                            {
+                                target: 0,
+                                content: [
+                                    'order',
+                                ]
+                            },
+                            {
+                                target: 1,
+                                content: [
+                                    'search'
+                                ]
+                            }
+                        ],
+                    },
+                    url: {
+                        api: {
+                            getGroups: '{% url "aa_permission_management:get_groups" %}',
+                            getStates: '{% url "aa_permission_management:get_states" %}',
+                        }
+                    }
+                };
             </script>
 
-            {% block aa_permission_management_body %}{% endblock %}
+            {% block aa_permission_management_body %}{% endblock aa_permission_management_body %}
         </div>
 
         <div class="aa-permission-management-footer mt-3 pt-3 border-top border-light">
             {% include "aa_permission_management/partials/footer/app-translation-footer.html" %}
         </div>
     </div>
-{% endblock %}
+{% endblock content %}
