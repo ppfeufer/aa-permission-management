@@ -8,6 +8,9 @@ import socket
 # Django
 from django.test import TestCase
 
+# AA Permission Management
+from aa_permission_management.tests.fixtures.utils import create_fake_user
+
 
 class SocketAccessError(Exception):
     """
@@ -42,6 +45,26 @@ class BaseTestCase(TestCase):
         socket.socket = cls.guard
 
         return super().setUpClass()
+
+    def setUp(self):
+        """
+        Sets up the test case by ensuring the socket.socket method is still the guard.
+
+        :return:
+        :rtype:
+        """
+
+        super().setUp()
+
+        self.user_with_permission = create_fake_user(
+            character_id=10001,
+            character_name="Jean Luc Picard",
+            permissions=["aa_permission_management.access_permission_management"],
+        )
+        self.user_without_permission = create_fake_user(
+            character_id=10002,
+            character_name="Wesley Crusher",
+        )
 
     @classmethod
     def tearDownClass(cls):

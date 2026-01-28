@@ -27,7 +27,7 @@ class PermissionManagementMenuItem(
         MenuItemHook.__init__(
             self,
             text=__title_translated__,
-            classes="fa-solid fa-users",
+            classes="fa-solid fa-list-check",
             url_name="aa_permission_management:dashboard",
             navactive=["aa_permission_management:"],
         )

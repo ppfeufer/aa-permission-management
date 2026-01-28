@@ -3,6 +3,7 @@ Views for the AA Permission Management app.
 """
 
 # Django
+from django.contrib.auth.decorators import permission_required
 from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.db.models import Count, QuerySet
 from django.http import HttpRequest
@@ -21,6 +22,7 @@ from aa_permission_management.providers import AppLogger
 logger = AppLogger(my_logger=get_extension_logger(name=__name__), prefix=__title__)
 
 
+@permission_required("aa_permission_management.access_permission_management")
 def dashboard(request):
     """
     Render the dashboard for AA Permission Management.
@@ -31,22 +33,9 @@ def dashboard(request):
     :rtype:
     """
 
-    auth_groups = AuthGroup.objects.select_related("group").order_by("group__name")
-    auth_states = (
-        State.objects.all()
-        .annotate(user_count=Count("userprofile__id"))
-        .order_by("name")
-    )
-
-    context = {
-        "auth_groups": auth_groups,
-        "auth_states": auth_states,
-    }
-
     return render(
         request=request,
         template_name="aa_permission_management/views/dashboard.html",
-        context=context,
     )
 
 
@@ -55,7 +44,7 @@ class GroupsTableView(PermissionRequiredMixin, DataTablesView):
     Datatables view for Auth Groups.
     """
 
-    permission_required = ""
+    permission_required = "aa_permission_management.access_permission_management"
     model = AuthGroup
     columns = [
         ("group__name", "{{ row.group }}"),
@@ -86,12 +75,12 @@ class GroupsTableView(PermissionRequiredMixin, DataTablesView):
         return qs
 
 
-# class StatesTableView(PermissionRequiredMixin, DataTablesView):
-class StatesTableView(DataTablesView):
+class StatesTableView(PermissionRequiredMixin, DataTablesView):
     """
     Datatables view for Auth Groups.
     """
 
+    permission_required = "aa_permission_management.access_permission_management"
     model = State
     columns = [
         ("name", "{{ row.name }}"),
