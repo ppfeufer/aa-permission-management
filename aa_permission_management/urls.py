@@ -14,6 +14,11 @@ app_name: str = "aa_permission_management"  # pylint: disable=invalid-name
 ajax_urls = [
     path(route="get-groups/", view=views.GroupsTableView.as_view(), name="get_groups"),
     path(route="get-states/", view=views.StatesTableView.as_view(), name="get_states"),
+    path(
+        route="get-permissions/<str:permission_type>/<int:permission_id>/",
+        view=views.ajax_get_permissions,
+        name="get_permissions",
+    ),
 ]
 
 urlpatterns = [
