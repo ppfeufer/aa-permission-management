@@ -1,0 +1,25 @@
+{#<p>#}
+{#    {{ permissions }}#}
+{#</p>#}
+
+{% if permissions %}
+    <p>All System Permissions</p>
+    <ul>
+    {% for permission in permissions %}
+        <li>{{ permission.content_type }} | {{ permission.codename }} ({{ permission.pk }}) - {{ permission.name }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No permissions found.</p>
+{% endif %}
+
+{% if assigned_permissions %}
+    <p>Assigned Permissions</p>
+    <ul>
+    {% for permission in assigned_permissions %}
+        <li>{{ permission.content_type }} | {{ permission.codename }} ({{ permission.pk }}) - {{ permission.name }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No user permissions found.</p>
+{% endif %}

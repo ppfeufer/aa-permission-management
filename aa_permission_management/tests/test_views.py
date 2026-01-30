@@ -1,5 +1,10 @@
+"""
+Tests for the views in the aa_permission_management app.
+"""
+
 # Standard Library
 from http import HTTPStatus
+from unittest.mock import patch
 
 # Django
 from django.test import RequestFactory
@@ -27,6 +32,7 @@ class TestViewDashboard(BaseTestCase):
         """
 
         self.client.force_login(self.user_with_permission)
+
         response = self.client.get(reverse("aa_permission_management:dashboard"))
 
         self.assertEqual(response.status_code, HTTPStatus.OK)
@@ -44,6 +50,7 @@ class TestViewDashboard(BaseTestCase):
         """
 
         self.client.force_login(self.user_without_permission)
+
         response = self.client.get(reverse("aa_permission_management:dashboard"))
 
         self.assertEqual(response.status_code, HTTPStatus.FOUND)
@@ -114,3 +121,90 @@ class TestStatesTableView(BaseTestCase):
 
         self.assertTrue(queryset.exists())
         self.assertIn("user_count", queryset.query.annotations)
+
+
+class TestAjaxGetPermissionsView(BaseTestCase):
+    """
+    Tests for the ajax_get_permissions view.
+    """
+
+    def test_returns_permissions_for_group(self):
+        """
+        Test that the view returns the correct permissions for a group.
+
+        :return:
+        :rtype:
+        """
+
+        mock_permissions = ["perm1", "perm2"]
+        all_permissions = ["perm1", "perm2", "perm3"]
+
+        self.client.force_login(self.user_with_permission)
+
+        with (
+            patch(
+                "aa_permission_management.views.get_group_permissions",
+                return_value=mock_permissions,
+            ),
+            patch(
+                "aa_permission_management.views.get_all_permissions",
+                return_value=all_permissions,
+            ),
+        ):
+            response = self.client.get(
+                reverse(
+                    "aa_permission_management:get_permissions",
+                    kwargs={"permission_type": "group", "permission_id": 1},
+                )
+            )
+
+        self.assertEqual(response.status_code, HTTPStatus.OK)
+        self.assertIn("assigned_permissions", response.context)
+        self.assertEqual(response.context["assigned_permissions"], mock_permissions)
+        self.assertEqual(response.context["permissions"], all_permissions)
+
+    def test_returns_permissions_for_state(self):
+        mock_permissions = ["perm1", "perm2"]
+        all_permissions = ["perm1", "perm2", "perm3"]
+
+        self.client.force_login(self.user_with_permission)
+
+        with (
+            patch(
+                "aa_permission_management.views.get_state_permissions",
+                return_value=mock_permissions,
+            ),
+            patch(
+                "aa_permission_management.views.get_all_permissions",
+                return_value=all_permissions,
+            ),
+        ):
+            response = self.client.get(
+                reverse(
+                    "aa_permission_management:get_permissions",
+                    kwargs={"permission_type": "state", "permission_id": 2},
+                )
+            )
+
+        self.assertEqual(response.status_code, HTTPStatus.OK)
+        self.assertIn("assigned_permissions", response.context)
+        self.assertEqual(response.context["assigned_permissions"], mock_permissions)
+        self.assertEqual(response.context["permissions"], all_permissions)
+
+    def test_raises_value_error_for_invalid_type(self):
+        """
+        Test that the view raises a ValueError for an invalid type.
+
+        :return:
+        :rtype:
+        """
+
+        self.client.force_login(self.user_with_permission)
+
+        with self.assertRaises(ValueError):
+            self.client.get(
+                reverse(
+                    "aa_permission_management:get_permissions",
+                    kwargs={"permission_type": "invalid", "permission_id": 3},
+                )
+            )
