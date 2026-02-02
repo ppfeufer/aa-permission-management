@@ -47,7 +47,7 @@ def dashboard(request: WSGIRequest) -> HttpResponse:
 
 @permission_required("aa_permission_management.access_permission_management")
 def ajax_get_permissions(
-    request: WSGIRequest, permission_type: str, permission_id: int
+    request: WSGIRequest, permission_type: str, element_id: int
 ) -> HttpResponse:
     """
     AJAX view to get permissions for a group or state.
@@ -56,16 +56,16 @@ def ajax_get_permissions(
     :type request:
     :param permission_type:
     :type permission_type:
-    :param permission_id:
-    :type permission_id:
+    :param element_id:
+    :type element_id:
     :return:
     :rtype:
     """
 
     if permission_type == "group":
-        permissions = get_group_permissions(permission_id)
+        permissions = get_group_permissions(element_id)
     elif permission_type == "state":
-        permissions = get_state_permissions(permission_id)
+        permissions = get_state_permissions(element_id)
     else:
         raise ValueError("Invalid type")
 

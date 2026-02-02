@@ -93,6 +93,16 @@
                 </div>
 
                 <div class="card-body">
+                    <div id="loading-spinner" class="d-none text-center">
+                        <svg>
+                            <use href="#aa-loading-spinner"></use>
+                        </svg>
+
+                        <p>
+                            {% translate "Loading …" %}
+                        </p>
+                    </div>
+
                     <div id="permissions"></div>
                 </div>
             </div>
@@ -103,6 +113,7 @@
 {% block extra_css %}
     {% include "bundles/datatables-2-css-bs5.html" %}
     {% include "bundles/datatables-2-columncontrol-css-bs5.html" %}
+    {% include "aa_permission_management/bundles/aa-permission-management-css.html" %}
 {% endblock extra_css %}
 
 {% block extra_javascript %}
