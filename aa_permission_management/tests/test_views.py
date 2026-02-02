@@ -154,7 +154,7 @@ class TestAjaxGetPermissionsView(BaseTestCase):
             response = self.client.get(
                 reverse(
                     "aa_permission_management:get_permissions",
-                    kwargs={"permission_type": "group", "permission_id": 1},
+                    kwargs={"permission_type": "group", "element_id": 1},
                 )
             )
 
@@ -182,7 +182,7 @@ class TestAjaxGetPermissionsView(BaseTestCase):
             response = self.client.get(
                 reverse(
                     "aa_permission_management:get_permissions",
-                    kwargs={"permission_type": "state", "permission_id": 2},
+                    kwargs={"permission_type": "state", "element_id": 2},
                 )
             )
 
@@ -205,6 +205,6 @@ class TestAjaxGetPermissionsView(BaseTestCase):
             self.client.get(
                 reverse(
                     "aa_permission_management:get_permissions",
-                    kwargs={"permission_type": "invalid", "permission_id": 3},
+                    kwargs={"permission_type": "invalid", "element_id": 3},
                 )
             )

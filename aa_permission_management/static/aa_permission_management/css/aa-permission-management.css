@@ -4,3 +4,20 @@
         height: 2rem;
     }
 }
+
+/* Multi Select
+------------------------------------------------------------------------------------- */
+@media all {
+    .aa-permission-management .ms-container {
+        height: 50vh;
+        width: 100%;
+    }
+
+    .aa-permission-management .ms-selectable, .aa-permission-management .ms-selection {
+        height: 100%;
+    }
+
+    .aa-permission-management .ms-selectable ul, .aa-permission-management .ms-selection ul {
+        height: 90%;
+    }
+}

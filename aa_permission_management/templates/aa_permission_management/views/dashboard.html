@@ -113,11 +113,26 @@
 {% block extra_css %}
     {% include "bundles/datatables-2-css-bs5.html" %}
     {% include "bundles/datatables-2-columncontrol-css-bs5.html" %}
+    {% include "aa_permission_management/bundles/multi-select-css.html" %}
     {% include "aa_permission_management/bundles/aa-permission-management-css.html" %}
 {% endblock extra_css %}
 
 {% block extra_javascript %}
     {% include "bundles/datatables-2-js-bs5.html" %}
     {% include "bundles/datatables-2-columncontrol-js-bs5.html" %}
+    {% include "aa_permission_management/bundles/multi-select-js.html" %}
+    {% include "aa_permission_management/bundles/jquery.quicksearch-js.html" %}
+
+    {% comment %} Translations used in JavaScript {% endcomment %}
+    {% translate "Search" as l10n_search %}
+
+    <script>
+        const permissionManagamentSettingsOverrides = {
+            l10n: {
+                search: '{{ l10n_search|escapejs }}',
+            }
+        };
+    </script>
+
     {% include "aa_permission_management/bundles/aa-permission-management-js.html" %}
 {% endblock extra_javascript %}

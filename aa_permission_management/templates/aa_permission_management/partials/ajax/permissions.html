@@ -1,25 +1,25 @@
-{#<p>#}
-{#    {{ permissions }}#}
-{#</p>#}
+{% load i18n %}
 
-{% if permissions %}
-    <p>All System Permissions</p>
-    <ul>
-    {% for permission in permissions %}
-        <li>{{ permission.content_type }} | {{ permission.codename }} ({{ permission.pk }}) - {{ permission.name }}</li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No permissions found.</p>
-{% endif %}
+{% translate "Select permissions" as l10n_select_permissions %}
 
-{% if assigned_permissions %}
-    <p>Assigned Permissions</p>
-    <ul>
-    {% for permission in assigned_permissions %}
-        <li>{{ permission.content_type }} | {{ permission.codename }} ({{ permission.pk }}) - {{ permission.name }}</li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No user permissions found.</p>
-{% endif %}
+<form class="edit-permissions" role="form" action="" method="POST">
+    {% csrf_token %}
+
+    <div class="form-group mb-3">
+        <label for="permissionSelect" class="form-label">{{ l10n_select_permissions|title }}</label>
+
+        <select multiple="multiple" id="permissionSelect" name="permissionSelect">
+            {% for permission in assigned_permissions %}
+                <option value="{{ permission.pk }}" selected>
+                    {{ permission.content_type }} | {{ permission.codename }} - {{ permission.name }}
+                </option>
+            {% endfor %}
+
+            {% for permission in permissions %}
+                <option value="{{ permission.pk }}">
+                    {{ permission.content_type }} | {{ permission.codename }} - {{ permission.name }}
+                </option>
+            {% endfor %}
+        </select>
+    </div>
+</form>

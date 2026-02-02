@@ -1,7 +1,14 @@
-/* global bootstrap, DataTable, fetchGet, permissionManagamentSettings */
+/* global bootstrap, DataTable, fetchGet, objectDeepMerge, permissionManagamentSettingsDefaults, permissionManagamentSettingsOverrides */
 
 $(document).ready(() => {
     'use strict';
+
+    // Build the settings object
+    const permissionManagamentSettings = typeof permissionManagamentSettingsOverrides !== 'undefined'
+        ? objectDeepMerge(permissionManagamentSettingsDefaults, permissionManagamentSettingsOverrides) // jshint ignore: line
+        : permissionManagamentSettingsDefaults;
+
+    console.log('Permission Management Settings:', permissionManagamentSettings);
 
     /**
      * Bootstrap tooltip
@@ -16,7 +23,10 @@ $(document).ready(() => {
      * @returns {void}
      * @private
      */
-    const _bootstrapTooltip = ({selector = '.aa-permission-management', namespace = 'aa-permission-management'}) => {
+    const _bootstrapTooltip = ({
+        selector = '.aa-permission-management',
+        namespace = 'aa-permission-management'
+    }) => {
         document.querySelectorAll(`${selector} [data-bs-tooltip="${namespace}"]`)
             .forEach((tooltipTriggerEl) => {
                 // Dispose existing tooltip instance if it exists
@@ -54,9 +64,48 @@ $(document).ready(() => {
         fetchGet({url: url, responseIsJson: false})
             .then((response) => response)
             .then((data) => {
-                console.log('Edit Permissions Data:', data);
                 elementLoadingSpinner.addClass('d-none');
                 elementPermissionsContainer.html(data).removeClass('d-none');
+
+                const searchField = `<input type="text" class="form-control mb-3" autocomplete="off" placeholder="${permissionManagamentSettings.l10n.search}">`;
+
+                $('#permissionSelect').multiSelect({
+                    selectableHeader: searchField,
+                    selectionHeader: searchField,
+                    afterInit: function () {
+                        let ms = this,
+                            $selectableSearch = ms.$selectableUl.prev(),
+                            $selectionSearch = ms.$selectionUl.prev(),
+                            selectableSearchString = `#${ms.$container.attr('id')} .ms-elem-selectable:not(.ms-selected)`,
+                            selectionSearchString = `#${ms.$container.attr('id')} .ms-elem-selection.ms-selected`;
+
+                        ms.qs1 = $selectableSearch.quicksearch(selectableSearchString)
+                            .on('keydown', function (e) {
+                                if (e.which === 40) {
+                                    ms.$selectableUl.focus();
+
+                                    return false;
+                                }
+                            });
+
+                        ms.qs2 = $selectionSearch.quicksearch(selectionSearchString)
+                            .on('keydown', function (e) {
+                                if (e.which === 40) {
+                                    ms.$selectionUl.focus();
+
+                                    return false;
+                                }
+                            });
+                    },
+                    afterSelect: function () {
+                        this.qs1.cache();
+                        this.qs2.cache();
+                    },
+                    afterDeselect: function () {
+                        this.qs1.cache();
+                        this.qs2.cache();
+                    }
+                });
             })
             .catch((error) => {
                 console.error('There was a problem with the fetch operation:', error);
@@ -104,17 +153,19 @@ $(document).ready(() => {
      * @return {DataTable} DataTable instance
      * @private
      */
-    const _createDataTable = ({selector, ajaxUrl, initComplete = () => {}}) => {
+    const _createDataTable = ({
+        selector, ajaxUrl, initComplete = () => {}
+    }) => {
         const columnDefs = [
             {
                 targets: [1, 2],
                 sortable: false,
                 searchable: false,
-                columnControl: removeColumnControl,
+                columnControl: removeColumnControl
             },
             {
                 target: 2,
-                class: 'text-end',
+                class: 'text-end'
             }
         ];
 
@@ -129,8 +180,14 @@ $(document).ready(() => {
 
     // Initialize DataTables
     [
-        {selector: '#table-groups', url: permissionManagamentSettings.url.api.getGroups},
-        {selector: '#table-states', url: permissionManagamentSettings.url.api.getStates},
+        {
+            selector: '#table-groups',
+            url: permissionManagamentSettings.url.api.getGroups
+        },
+        {
+            selector: '#table-states',
+            url: permissionManagamentSettings.url.api.getStates
+        }
     ].forEach(({selector, url}) => _createDataTable({
         selector: selector,
         ajaxUrl: url,
