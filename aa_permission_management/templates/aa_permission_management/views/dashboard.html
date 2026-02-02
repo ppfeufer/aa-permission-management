@@ -24,50 +24,36 @@
                         <li class="nav-item" role="presentation">
                             <button
                                 class="nav-link active"
-                                id="groups-tab"
+                                id="states-tab"
                                 data-bs-toggle="tab"
-                                data-bs-target="#groups"
+                                data-bs-target="#states"
                                 type="button"
                                 role="tab"
-                                aria-controls="groups"
+                                aria-controls="states"
                                 aria-selected="true"
                             >
-                                {{ l10n_groups }}
+                                {{ l10n_states }}
                             </button>
                         </li>
 
                         <li class="nav-item" role="presentation">
                             <button
                                 class="nav-link"
-                                id="states-tab"
+                                id="groups-tab"
                                 data-bs-toggle="tab"
-                                data-bs-target="#states"
-                                type="button" role="tab"
-                                aria-controls="states"
+                                data-bs-target="#groups"
+                                type="button"
+                                role="tab"
+                                aria-controls="groups"
                                 aria-selected="false"
                             >
-                                {{ l10n_states }}
+                                {{ l10n_groups }}
                             </button>
                         </li>
                     </ul>
 
                     <div class="tab-content mt-3" id="groupsStatesTabContent">
-                        <div class="tab-pane fade show active" id="groups" role="tabpanel" aria-labelledby="groups-tab">
-                            <!-- Groups content -->
-                            <table id="table-groups" class="w-100 table table-striped table-hover align-middle">
-                                <thead>
-                                    <tr>
-                                        <th>{{ l10n_group_name|title }}</th>
-                                        <th>{{ l10n_member_count|title }}</th>
-                                        <th class="text-end"></th>
-                                    </tr>
-                                </thead>
-
-                                <tbody></tbody>
-                            </table>
-                        </div>
-
-                        <div class="tab-pane fade" id="states" role="tabpanel" aria-labelledby="states-tab">
+                        <div class="tab-pane fade show active" id="states" role="tabpanel" aria-labelledby="states-tab">
                             <!-- States content -->
                             <table id="table-states" class="w-100 table table-striped table-hover">
                                 <thead>
@@ -75,6 +61,21 @@
                                         <th>{{ l10n_state_name|title }}</th>
                                         <th>{{ l10n_member_count|title }}</th>
                                         <th></th>
+                                    </tr>
+                                </thead>
+
+                                <tbody></tbody>
+                            </table>
+                        </div>
+
+                        <div class="tab-pane fade" id="groups" role="tabpanel" aria-labelledby="groups-tab">
+                            <!-- Groups content -->
+                            <table id="table-groups" class="w-100 table table-striped table-hover align-middle">
+                                <thead>
+                                    <tr>
+                                        <th>{{ l10n_group_name|title }}</th>
+                                        <th>{{ l10n_member_count|title }}</th>
+                                        <th class="text-end"></th>
                                     </tr>
                                 </thead>
 
