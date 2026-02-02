@@ -35,7 +35,7 @@ $(document).ready(() => {
     /**
      * DataTable initialization complete handler
      *
-     * @param selector
+     * @param {string} selector
      * @private
      */
     const _initComplete = (selector) => {
@@ -57,11 +57,12 @@ $(document).ready(() => {
     /**
      * Create and return a DataTable instance.
      *
-     * @param selector
-     * @param ajaxUrl
-     * @return {DataTable}
+     * @param {String} selector Selector for the table element
+     * @param {String} ajaxUrl URL for AJAX data source
+     * @param {Function} [initComplete=() => void] Callback function to be executed when DataTable initialization is complete
+     * @return {DataTable} DataTable instance
      */
-    const createDataTable = (selector, ajaxUrl) => {
+    const createDataTable = ({selector, ajaxUrl, initComplete = function () {}}) => {
         const columnDefs = [
             {
                 targets: [1, 2],
@@ -80,12 +81,7 @@ $(document).ready(() => {
             ajax: ajaxUrl,
             columnDefs,
             order: [[0, 'asc']],
-            initComplete: () => {
-                const tableApi = $(selector).DataTable();
-
-                _initComplete(selector);
-                tableApi.on('draw.dt', () => _initComplete(selector));
-            },
+            initComplete: initComplete || function () {},
         });
     };
 
@@ -93,5 +89,14 @@ $(document).ready(() => {
     [
         {selector: '#table-groups', url: permissionManagamentSettings.url.api.getGroups},
         {selector: '#table-states', url: permissionManagamentSettings.url.api.getStates},
-    ].forEach(({selector, url}) => createDataTable(selector, url));
+    ].forEach(({selector, url}) => createDataTable({
+        selector: selector,
+        ajaxUrl: url,
+        initComplete: () => {
+            const tableApi = $(selector).DataTable();
+
+            _initComplete(selector);
+            tableApi.on('draw.dt', () => _initComplete(selector));
+        }
+    }));
 });
