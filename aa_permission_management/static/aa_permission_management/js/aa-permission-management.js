@@ -46,16 +46,23 @@ $(document).ready(() => {
     /**
      * Show permissions in the permissions container
      *
-     * @param {string} permissionType The type of permission to fetch (e.g., 'group', 'state')
-     * @param {int} elementId The ID of the element to fetch permissions for
+     * @param {HTMLElement} permissionElement The element that was clicked to show permissions
      * @private
      */
-    const _showPermissions = (permissionType, elementId) => {
+    const _showPermissions = (permissionElement) => {
         const elementLoadingSpinner = $('#loading-spinner');
         const elementPermissionsContainer = $('#permissions');
+        const elementSelected = $('#selected-element');
+        const {
+            permissionType,
+            elementId,
+            elementName
+        } = permissionElement.dataset;
+        const permissionTypeTranslated = permissionManagamentSettings.l10n?.[permissionType] ?? permissionType;
 
         elementPermissionsContainer.empty().addClass('d-none');
         elementLoadingSpinner.removeClass('d-none');
+        elementSelected.removeClass('d-none').text(`${permissionTypeTranslated}: ${elementName}`);
 
         const url = permissionManagamentSettings.url.api.getPermissions
             .replace('__permission_type__', permissionType)
@@ -125,10 +132,10 @@ $(document).ready(() => {
         // Show/Edit permissions button click handler
         $('.btn-edit-permissions').off('click').on('click', (event) => {
             const button = event.currentTarget;
-            const permissionType = button.getAttribute('data-permission-type');
-            const elementId = button.getAttribute('data-element-id');
+            // const permissionType = button.getAttribute('data-permission-type');
+            // const elementId = button.getAttribute('data-element-id');
 
-            _showPermissions(permissionType, elementId);
+            _showPermissions(button);
         });
     };
 

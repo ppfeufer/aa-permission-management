@@ -91,6 +91,7 @@
             <div class="card mb-3">
                 <div class="card-header">
                     {{ l10n_permissions }}
+                    <span id="selected-element" class="float-end d-none"></span>
                 </div>
 
                 <div class="card-body">
@@ -126,11 +127,15 @@
 
     {% comment %} Translations used in JavaScript {% endcomment %}
     {% translate "Search" as l10n_search %}
+    {% translate "Group" as l10n_group %}
+    {% translate "State" as l10n_state %}
 
     <script>
         const permissionManagamentSettingsOverrides = {
             l10n: {
                 search: '{{ l10n_search|escapejs }}',
+                group: '{{ l10n_group|escapejs }}',
+                state: '{{ l10n_state|escapejs }}'
             }
         };
     </script>

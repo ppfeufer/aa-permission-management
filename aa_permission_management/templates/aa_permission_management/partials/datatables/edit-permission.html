@@ -6,6 +6,7 @@
     data-bs-tooltip="aa-permission-management"
     data-permission-type="{{ permission_type }}"
     data-element-id="{{ row.pk }}"
+    data-element-name="{%  if permission_type == 'state' %}{{ row.name }}{% else %}{{ row.group }}{% endif %}"
 >
     <i class="fa-solid fa-angles-right fa-fw"></i>
 </button>
