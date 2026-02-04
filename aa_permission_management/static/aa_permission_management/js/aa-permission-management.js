@@ -178,7 +178,10 @@ $(document).ready(() => {
 
         return new DataTable(selector, {
             ...permissionManagamentSettings.dataTable,
-            ajax: ajaxUrl,
+            ajax: {
+                url: ajaxUrl,
+                error: (xhr, error) => console.error(`Error loading data for table ${selector}:`, xhr, error)
+            },
             columnDefs,
             order: [[0, 'asc']],
             initComplete: initComplete
