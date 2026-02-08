@@ -8,8 +8,6 @@ $(document).ready(() => {
         ? objectDeepMerge(permissionManagamentSettingsDefaults, permissionManagamentSettingsOverrides) // jshint ignore: line
         : permissionManagamentSettingsDefaults;
 
-    console.log('Permission Management Settings:', permissionManagamentSettings);
-
     /**
      * Bootstrap tooltip
      *
@@ -87,7 +85,7 @@ $(document).ready(() => {
                             selectionSearchString = `#${ms.$container.attr('id')} .ms-elem-selection.ms-selected`;
 
                         ms.qs1 = $selectableSearch.quicksearch(selectableSearchString)
-                            .on('keydown', function (e) {
+                            .on('keydown', (e) => {
                                 if (e.which === 40) {
                                     ms.$selectableUl.focus();
 
@@ -96,7 +94,7 @@ $(document).ready(() => {
                             });
 
                         ms.qs2 = $selectionSearch.quicksearch(selectionSearchString)
-                            .on('keydown', function (e) {
+                            .on('keydown', (e) => {
                                 if (e.which === 40) {
                                     ms.$selectionUl.focus();
 
@@ -132,8 +130,6 @@ $(document).ready(() => {
         // Show/Edit permissions button click handler
         $('.btn-edit-permissions').off('click').on('click', (event) => {
             const button = event.currentTarget;
-            // const permissionType = button.getAttribute('data-permission-type');
-            // const elementId = button.getAttribute('data-element-id');
 
             _showPermissions(button);
         });
@@ -198,14 +194,16 @@ $(document).ready(() => {
             selector: '#table-states',
             url: permissionManagamentSettings.url.api.getStates
         }
-    ].forEach(({selector, url}) => _createDataTable({
-        selector: selector,
-        ajaxUrl: url,
-        initComplete: () => {
-            const tableApi = $(selector).DataTable();
+    ].forEach(({selector, url}) => {
+        const dt = _createDataTable({
+            selector: selector,
+            ajaxUrl: url,
+            initComplete: () => {
+                _initComplete(selector);
 
-            _initComplete(selector);
-            tableApi.on('draw.dt', () => _initComplete(selector));
-        }
-    }));
+                /* @var {DataTable} dt */
+                dt.on('draw.dt', () => _initComplete(selector));
+            }
+        });
+    });
 });
