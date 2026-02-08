@@ -1,2 +1,2 @@
-@media all{.aa-permission-management #loading-spinner svg{width:2rem;height:2rem}.aa-permission-management .ms-container{height:50vh;width:100%}.aa-permission-management .ms-selectable,.aa-permission-management .ms-selection{height:100%}.aa-permission-management .ms-selectable ul,.aa-permission-management .ms-selection ul{height:90%}}
+@media all{.aa-permission-management #loading-spinner svg{width:2rem;height:2rem}.aa-permission-management .ms-container{width:100%}.aa-permission-management .ms-container .ms-list{height:50vh;max-height:558px}}
 /*# sourceMappingURL=aa-permission-management.min.css.map */
