@@ -1,0 +1,70 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Languages add-on <noreply-addon-languages@weblate.org>, 2026.
+# Peter Pfeufer <info@ppfeufer.de>, 2026.
+msgid ""
+msgstr ""
+"Project-Id-Version: AA Permission Management 0.0.1a1\n"
+"Report-Msgid-Bugs-To: https://github.com/ppfeufer/aa-permission-management/issues\n"
+"POT-Creation-Date: 2026-01-29 00:40+0100\n"
+"PO-Revision-Date: 2026-01-30 02:17+0000\n"
+"Last-Translator: Peter Pfeufer <info@ppfeufer.de>\n"
+"Language-Team: German <https://weblate.ppfeufer.de/projects/alliance-auth-apps/aa-permission-management/de/>\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.15.2\n"
+
+#: aa_permission_management/__init__.py:10
+#: aa_permission_management/models.py:28
+#: aa_permission_management/templates/aa_permission_management/base.html:7
+#: aa_permission_management/templates/aa_permission_management/base.html:11
+msgid "Permission Management"
+msgstr "Berechtigungsverwaltung"
+
+#: aa_permission_management/models.py:25
+msgid "Can access the Permission Management module and manage permissions"
+msgstr "Kann auf das Modul „Berechtigungsverwaltung“ zugreifen und Berechtigungen verwalten"
+
+#: aa_permission_management/templates/aa_permission_management/partials/datatables/edit-permission.html:5
+msgid "Show/Edit permissions"
+msgstr "Berechtigungen anzeigen/bearbeiten"
+
+#: aa_permission_management/templates/aa_permission_management/partials/footer/app-translation-footer.html:5
+msgid "Do you want to help translate this app into your language or improve the existing translation?"
+msgstr "Du möchtest helfen diese App in Deine Sprache zu übersetzen oder die bestehende Übersetzung zu verbessern?"
+
+#: aa_permission_management/templates/aa_permission_management/partials/footer/app-translation-footer.html:8
+msgid "Join our team of translators!"
+msgstr "Tritt unserm Team von Übersetzern bei!"
+
+#: aa_permission_management/templates/aa_permission_management/views/dashboard.html:8
+msgid "Group name"
+msgstr "Gruppenname"
+
+#: aa_permission_management/templates/aa_permission_management/views/dashboard.html:9
+msgid "State name"
+msgstr "Statusname"
+
+#: aa_permission_management/templates/aa_permission_management/views/dashboard.html:10
+msgid "Member count"
+msgstr "Mitgliederzahl"
+
+#: aa_permission_management/templates/aa_permission_management/views/dashboard.html:11
+msgid "Groups and states"
+msgstr "Gruppen und Status"
+
+#: aa_permission_management/templates/aa_permission_management/views/dashboard.html:12
+msgid "Permissions"
+msgstr "Berechtigungen"
+
+#: aa_permission_management/templates/aa_permission_management/views/dashboard.html:13
+msgid "Groups"
+msgstr "Gruppen"
+
+#: aa_permission_management/templates/aa_permission_management/views/dashboard.html:14
+msgid "States"
+msgstr "Status"
