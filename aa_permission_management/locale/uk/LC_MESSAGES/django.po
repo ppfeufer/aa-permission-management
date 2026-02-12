@@ -1,0 +1,70 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Languages add-on <noreply-addon-languages@weblate.org>, 2026.
+# Peter Pfeufer <info@ppfeufer.de>, 2026.
+msgid ""
+msgstr ""
+"Project-Id-Version: AA Permission Management 0.0.1a1\n"
+"Report-Msgid-Bugs-To: https://github.com/ppfeufer/aa-permission-management/issues\n"
+"POT-Creation-Date: 2026-01-29 00:40+0100\n"
+"PO-Revision-Date: 2026-01-27 23:23+0000\n"
+"Last-Translator: Peter Pfeufer <info@ppfeufer.de>\n"
+"Language-Team: Ukrainian <https://weblate.ppfeufer.de/projects/alliance-auth-apps/aa-permission-management/uk/>\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 5.15.2\n"
+
+#: aa_permission_management/__init__.py:10
+#: aa_permission_management/models.py:28
+#: aa_permission_management/templates/aa_permission_management/base.html:7
+#: aa_permission_management/templates/aa_permission_management/base.html:11
+msgid "Permission Management"
+msgstr ""
+
+#: aa_permission_management/models.py:25
+msgid "Can access the Permission Management module and manage permissions"
+msgstr ""
+
+#: aa_permission_management/templates/aa_permission_management/partials/datatables/edit-permission.html:5
+msgid "Show/Edit permissions"
+msgstr ""
+
+#: aa_permission_management/templates/aa_permission_management/partials/footer/app-translation-footer.html:5
+msgid "Do you want to help translate this app into your language or improve the existing translation?"
+msgstr "Хочете допомогти перекласти цю програму вашою мовою чи покращити наявний переклад?"
+
+#: aa_permission_management/templates/aa_permission_management/partials/footer/app-translation-footer.html:8
+msgid "Join our team of translators!"
+msgstr "Приєднуйтесь до нашої команди перекладачів!"
+
+#: aa_permission_management/templates/aa_permission_management/views/dashboard.html:8
+msgid "Group name"
+msgstr ""
+
+#: aa_permission_management/templates/aa_permission_management/views/dashboard.html:9
+msgid "State name"
+msgstr ""
+
+#: aa_permission_management/templates/aa_permission_management/views/dashboard.html:10
+msgid "Member count"
+msgstr ""
+
+#: aa_permission_management/templates/aa_permission_management/views/dashboard.html:11
+msgid "Groups and states"
+msgstr ""
+
+#: aa_permission_management/templates/aa_permission_management/views/dashboard.html:12
+msgid "Permissions"
+msgstr ""
+
+#: aa_permission_management/templates/aa_permission_management/views/dashboard.html:13
+msgid "Groups"
+msgstr ""
+
+#: aa_permission_management/templates/aa_permission_management/views/dashboard.html:14
+msgid "States"
+msgstr ""
