@@ -1,0 +1,103 @@
+{% load i18n %}
+{% load django_bootstrap5 %}
+
+{% translate "Select permissions" as l10n_select_permissions %}
+
+<form class="edit-permissions" role="form" action="" method="POST">
+    {% csrf_token %}
+
+    <div class="form-group mb-3">
+        <label for="permissionSelect" class="form-label">{{ l10n_select_permissions|title }}</label>
+
+        <select multiple="multiple" id="permissionSelect" name="permissionSelect">
+            {% for permission in assigned_permissions %}
+                <option value="{{ permission.pk }}" selected>
+                    {{ permission.content_type }} | {{ permission.codename }} - {{ permission.name }}
+                </option>
+            {% endfor %}
+
+            {% for permission in permissions %}
+                <option value="{{ permission.pk }}">
+                    {{ permission.content_type }} | {{ permission.codename }} - {{ permission.name }}
+                </option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="form-group mb-3">
+        <div class="float-start">
+            {% translate "Save" as button_text %}
+            {% bootstrap_button button_type="submit" content=button_text button_class="btn btn-primary btn-update-permissions" id="update-permissions" data_permission_type=permission_type data_element_id=element_id %}
+        </div>
+
+        <div class="float-end">
+            <div class="aa-callout aa-callout-success aa-callout-sm mb-0 permission-update-success" role="alert" style="display: none;">
+                <p class="mb-0">{% translate "Permissions updated." %}</p>
+            </div>
+
+            <div class="aa-callout aa-callout-danger aa-callout-sm mb-0 permission-update-error" role="alert" style="display: none;">
+                <p class="mb-0">{% translate "There may have been an issue with the update." %}</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(() => {
+            /* global fetchPost, permissionManagamentSettings */
+
+            'use strict';
+
+            // Build the settings object
+            const permissionManagamentSettings = typeof permissionManagamentSettingsOverrides !== 'undefined'
+                ? objectDeepMerge(permissionManagamentSettingsDefaults, permissionManagamentSettingsOverrides) // jshint ignore: line
+                : permissionManagamentSettingsDefaults;
+
+            const _updatePermissions = (permissionType, elementId, permissions) => {
+                const csrfToken = $('input[name="csrfmiddlewaretoken"]').val();
+                const url = permissionManagamentSettings.url.api.updatePermissions;
+
+                fetchPost({
+                    url: url,
+                    csrfToken: csrfToken,
+                    payload: {
+                        permission_type: permissionType,
+                        element_id: elementId,
+                        permissions: permissions
+                    },
+                    responseIsJson: false
+                })
+                    .then(response => {
+                        console.log(response);
+                        // Optionally, show a success message or update the UI
+                        if (response === 'Success') {
+                            $('.permission-update-success').fadeIn().delay(2000).fadeOut();
+                        } else {
+                            $('.permission-update-error').fadeIn().delay(2000).fadeOut();
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error updating permissions:', error);
+                        // Optionally, show an error message to the user
+                    });
+            };
+
+            $(`#update-permissions`).on('click', (event) => {
+                event.preventDefault();
+
+                const button = event.currentTarget;
+                const {
+                    permissionType,
+                    elementId
+                } = button.dataset;
+                const selectedPermissions = $('#permissionSelect').val() || [];
+
+                console.log('Update permissions button clicked:', button);
+                console.log('Permission type:', permissionType);
+                console.log('Element ID:', elementId);
+                console.log('Selected permissions:', selectedPermissions);
+
+                _updatePermissions(permissionType, elementId, selectedPermissions);
+            });
+        });
+    </script>
+</form>
