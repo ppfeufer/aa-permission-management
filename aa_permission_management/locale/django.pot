@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: AA Permission Management 0.0.1a1\n"
 "Report-Msgid-Bugs-To: https://github.com/ppfeufer/aa-permission-management/issues\n"
-"POT-Creation-Date: 2026-02-02 13:59+0100\n"
+"POT-Creation-Date: 2026-03-02 15:51+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -28,8 +28,20 @@ msgstr ""
 msgid "Can access the Permission Management module and manage permissions"
 msgstr ""
 
-#: aa_permission_management/templates/aa_permission_management/partials/ajax/permissions.html:3
+#: aa_permission_management/templates/aa_permission_management/partials/ajax/permissions.html:4
 msgid "Select permissions"
+msgstr ""
+
+#: aa_permission_management/templates/aa_permission_management/partials/ajax/permissions.html:29
+msgid "Save"
+msgstr ""
+
+#: aa_permission_management/templates/aa_permission_management/partials/ajax/permissions.html:35
+msgid "Permissions updated."
+msgstr ""
+
+#: aa_permission_management/templates/aa_permission_management/partials/ajax/permissions.html:39
+msgid "There may have been an issue with the update."
 msgstr ""
 
 #: aa_permission_management/templates/aa_permission_management/partials/datatables/edit-permission.html:5
@@ -74,10 +86,18 @@ msgstr ""
 msgid "States"
 msgstr ""
 
-#: aa_permission_management/templates/aa_permission_management/views/dashboard.html:103
+#: aa_permission_management/templates/aa_permission_management/views/dashboard.html:105
 msgid "Loading …"
 msgstr ""
 
-#: aa_permission_management/templates/aa_permission_management/views/dashboard.html:129
+#: aa_permission_management/templates/aa_permission_management/views/dashboard.html:131
 msgid "Search"
+msgstr ""
+
+#: aa_permission_management/templates/aa_permission_management/views/dashboard.html:132
+msgid "Group"
+msgstr ""
+
+#: aa_permission_management/templates/aa_permission_management/views/dashboard.html:133
+msgid "State"
 msgstr ""
