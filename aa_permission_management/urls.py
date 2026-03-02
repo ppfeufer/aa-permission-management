@@ -19,6 +19,11 @@ ajax_urls = [
         view=views.ajax_get_permissions,
         name="get_permissions",
     ),
+    path(
+        route="update-permissions/",
+        view=views.ajax_update_permissions,
+        name="update_permissions",
+    ),
 ]
 
 urlpatterns = [

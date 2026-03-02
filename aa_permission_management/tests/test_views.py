@@ -3,8 +3,9 @@ Tests for the views in the aa_permission_management app.
 """
 
 # Standard Library
+import json
 from http import HTTPStatus
-from unittest.mock import patch
+from unittest.mock import MagicMock, patch
 
 # Django
 from django.test import RequestFactory
@@ -15,7 +16,11 @@ from allianceauth.groupmanagement.models import AuthGroup
 
 # AA Permission Management
 from aa_permission_management.tests import BaseTestCase
-from aa_permission_management.views import GroupsTableView, StatesTableView
+from aa_permission_management.views import (
+    GroupsTableView,
+    StatesTableView,
+    ajax_update_permissions,
+)
 
 
 class TestViewDashboard(BaseTestCase):
@@ -161,9 +166,18 @@ class TestAjaxGetPermissionsView(BaseTestCase):
         self.assertEqual(response.status_code, HTTPStatus.OK)
         self.assertIn("assigned_permissions", response.context)
         self.assertEqual(response.context["assigned_permissions"], mock_permissions)
-        self.assertEqual(response.context["permissions"], all_permissions)
+
+        expected_available = [p for p in all_permissions if p not in mock_permissions]
+        self.assertEqual(response.context["permissions"], expected_available)
 
     def test_returns_permissions_for_state(self):
+        """
+        Test that the view returns the correct permissions for a state.
+
+        :return:
+        :rtype:
+        """
+
         mock_permissions = ["perm1", "perm2"]
         all_permissions = ["perm1", "perm2", "perm3"]
 
@@ -189,7 +203,9 @@ class TestAjaxGetPermissionsView(BaseTestCase):
         self.assertEqual(response.status_code, HTTPStatus.OK)
         self.assertIn("assigned_permissions", response.context)
         self.assertEqual(response.context["assigned_permissions"], mock_permissions)
-        self.assertEqual(response.context["permissions"], all_permissions)
+
+        expected_available = [p for p in all_permissions if p not in mock_permissions]
+        self.assertEqual(response.context["permissions"], expected_available)
 
     def test_raises_value_error_for_invalid_type(self):
         """
@@ -208,3 +224,125 @@ class TestAjaxGetPermissionsView(BaseTestCase):
                     kwargs={"permission_type": "invalid", "element_id": 3},
                 )
             )
+
+
+class TestAjaxUpdatePermissionsView(BaseTestCase):
+    """
+    Tests for the ajax_update_permissions view.
+    """
+
+    def test_returns_success_when_updating_group_permissions(self):
+        """
+        Test that the view returns a success response when updating group permissions.
+
+        :return:
+        :rtype:
+        """
+
+        request = MagicMock()
+        request.method = "POST"
+        request.body = json.dumps(
+            {
+                "permission_type": "group",
+                "element_id": 1,
+                "permissions": ["perm1", "perm2"],
+            }
+        )
+
+        with patch(
+            "aa_permission_management.views.set_group_permissions"
+        ) as mock_set_permissions:
+            response = ajax_update_permissions(request)
+
+        mock_set_permissions.assert_called_once_with(1, {"perm1", "perm2"})
+        self.assertEqual(response.status_code, HTTPStatus.OK)
+        self.assertEqual(response.content.decode(), "Success")
+
+    def test_returns_success_when_updating_state_permissions(self):
+        """
+        Test that the view returns a success response when updating state permissions.
+
+        :return:
+        :rtype:
+        """
+
+        request = MagicMock()
+        request.method = "POST"
+        request.body = json.dumps(
+            {"permission_type": "state", "element_id": 2, "permissions": ["perm3"]}
+        )
+
+        with patch(
+            "aa_permission_management.views.set_state_permissions"
+        ) as mock_set_permissions:
+            response = ajax_update_permissions(request)
+
+        mock_set_permissions.assert_called_once_with(2, {"perm3"})
+        self.assertEqual(response.status_code, HTTPStatus.OK)
+        self.assertEqual(response.content.decode(), "Success")
+
+    def test_returns_no_content_when_request_method_is_not_post(self):
+        """
+        Test that the view returns a no content response when the request method is not POST.
+
+        :return:
+        :rtype:
+        """
+
+        request = MagicMock()
+        request.method = "GET"
+
+        response = ajax_update_permissions(request)
+
+        self.assertEqual(response.status_code, HTTPStatus.NO_CONTENT)
+
+    def test_returns_no_content_when_request_body_is_invalid_json(self):
+        """
+        Test that the view returns a no content response when the request body is invalid JSON.
+
+        :return:
+        :rtype:
+        """
+
+        request = MagicMock()
+        request.method = "POST"
+        request.body = "invalid json"
+
+        response = ajax_update_permissions(request)
+
+        self.assertEqual(response.status_code, HTTPStatus.NO_CONTENT)
+
+    def test_returns_no_content_when_required_keys_are_missing(self):
+        """
+        Test that the view returns a no content response when required keys are missing from the request body.
+
+        :return:
+        :rtype:
+        """
+
+        request = MagicMock()
+        request.method = "POST"
+        request.body = json.dumps({"permission_type": "group", "element_id": 1})
+
+        response = ajax_update_permissions(request)
+
+        self.assertEqual(response.status_code, HTTPStatus.NO_CONTENT)
+
+    def test_returns_no_content_and_error_message_when_permission_type_is_invalid(self):
+        """
+        Test that the view returns a no content response and an error message when the permission type is invalid.
+
+        :return:
+        :rtype:
+        """
+
+        request = MagicMock()
+        request.method = "POST"
+        request.body = json.dumps(
+            {"permission_type": "invalid", "element_id": 1, "permissions": ["perm1"]}
+        )
+
+        response = ajax_update_permissions(request)
+
+        self.assertEqual(response.status_code, HTTPStatus.NO_CONTENT)
+        self.assertEqual(response.content.decode(), "Error: Invalid Permission Type")
