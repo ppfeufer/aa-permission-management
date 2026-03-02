@@ -78,31 +78,25 @@ $(document).ready(() => {
                     selectableHeader: searchField,
                     selectionHeader: searchField,
                     afterInit: function () {
-                        // let ms = this,
-                        //     $selectableSearch = ms.$selectableUl.prev(),
-                        //     $selectionSearch = ms.$selectionUl.prev(),
-                        //     selectableSearchString = `#${ms.$container.attr('id')} .ms-elem-selectable:not(.ms-selected)`,
-                        //     selectionSearchString = `#${ms.$container.attr('id')} .ms-elem-selection.ms-selected`;
+                        let ms = this,
+                            $selectableSearch = ms.$selectableUl.prev(),
+                            $selectionSearch = ms.$selectionUl.prev(),
+                            selectableSearchString = `#${ms.$container.attr('id')} .ms-elem-selectable:not(.ms-selected)`,
+                            selectionSearchString = `#${ms.$container.attr('id')} .ms-elem-selection.ms-selected`;
 
-                        let that = this,
-                            $selectableSearch = that.$selectableUl.prev(),
-                            $selectionSearch = that.$selectionUl.prev(),
-                            selectableSearchString = '#'+that.$container.attr('id')+' .ms-elem-selectable:not(.ms-selected)',
-                            selectionSearchString = '#'+that.$container.attr('id')+' .ms-elem-selection.ms-selected';
-
-                        that.qs1 = $selectableSearch.quicksearch(selectableSearchString)
+                        ms.qs1 = $selectableSearch.quicksearch(selectableSearchString)
                             .on('keydown', (e) => {
                                 if (e.which === 40) {
-                                    that.$selectableUl.focus();
+                                    ms.$selectableUl.focus();
 
                                     return false;
                                 }
                             });
 
-                        that.qs2 = $selectionSearch.quicksearch(selectionSearchString)
+                        ms.qs2 = $selectionSearch.quicksearch(selectionSearchString)
                             .on('keydown', (e) => {
                                 if (e.which === 40) {
-                                    that.$selectionUl.focus();
+                                    ms.$selectionUl.focus();
 
                                     return false;
                                 }
