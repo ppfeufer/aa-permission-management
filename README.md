@@ -11,11 +11,12 @@ ______________________________________________________________________
   - [Bare Metal Installation](#bare-metal-installation)
     - [Step 1: Install the Module](#step-1-install-the-module)
     - [Step 2: Configure Alliance Auth](#step-2-configure-alliance-auth)
-    - [Step 3: Restart Alliance Auth](#step-3-restart-alliance-auth)
+    - [Step 3: Run Static Collection, Migrations, and Restart Alliance Auth](#step-3-run-static-collection-migrations-and-restart-alliance-auth)
   - [Docker Installation](#docker-installation)
     - [Step 1: Add the App](#step-1-add-the-app)
     - [Step 2: Configure Alliance Auth](#step-2-configure-alliance-auth-1)
     - [Step 3: Build Auth and Restart Your Containers](#step-3-build-auth-and-restart-your-containers)
+    - [Step 4: Finalize the Installation](#step-4-finalize-the-installation)
 
 <!-- mdformat-toc end -->
 
@@ -32,6 +33,12 @@ For EVE Online alliances, the number of people in a group or state can grow quit
 large, which can lead to performance issues when trying to manage permissions
 through the admin backend. This module provides a more efficient way to manage
 permissions for large groups and states in the Alliance Auth frontend.
+
+> [!WARNING]
+>
+> This module provides a user interface for managing permissions, which is an
+> administrative task. \
+> Please ensure to only grant access to this module to trusted users!
 
 ## Installation<a name="installation"></a>
 
@@ -60,12 +67,14 @@ INSTALLED_APPS += [
 ]
 ```
 
-#### Step 3: Restart Alliance Auth<a name="step-3-restart-alliance-auth"></a>
+#### Step 3: Run Static Collection, Migrations, and Restart Alliance Auth<a name="step-3-run-static-collection-migrations-and-restart-alliance-auth"></a>
 
-After installing the module and updating the configuration, restart your Alliance
-Auth application to apply the changes.
+After adding the module to your configuration, run the following commands:
 
 ```shell
+python manage.py collectstatic --noinput
+python manage.py migrate aa_permission_management
+
 sudo systemctl restart supervisor
 ```
 
@@ -99,4 +108,15 @@ your Docker images and restart your containers to apply the changes.
 ```shell
 docker compose build --no-cache
 docker compose --env-file=.env up -d
+```
+
+#### Step 4: Finalize the Installation<a name="step-4-finalize-the-installation"></a>
+
+After the containers are up and running, run the migrations for the new module.
+
+```shell
+docker compose exec allianceauth_gunicorn bash
+
+auth collectstatic
+auth migrate
 ```
