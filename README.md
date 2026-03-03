@@ -32,6 +32,9 @@ ______________________________________________________________________
     - [Step 2: Configure Alliance Auth](#step-2-configure-alliance-auth-1)
     - [Step 3: Build Auth and Restart Your Containers](#step-3-build-auth-and-restart-your-containers)
     - [Step 4: Finalize the Installation](#step-4-finalize-the-installation)
+- [Changelog](#changelog)
+- [Translation Status](#translation-status)
+- [Contributing](#contributing)
 
 <!-- mdformat-toc end -->
 
@@ -135,3 +138,27 @@ docker compose exec allianceauth_gunicorn bash
 auth collectstatic
 auth migrate
 ```
+
+## Changelog<a name="changelog"></a>
+
+See [CHANGELOG.md]
+
+## Translation Status<a name="translation-status"></a>
+
+[![Translation status](https://weblate.ppfeufer.de/widget/alliance-auth-apps/aa-permission-management/multi-auto.svg)](https://weblate.ppfeufer.de/engage/alliance-auth-apps/)
+
+Do you want to help translate this app into your language or improve the existing
+translation? - [Join our team of translators][weblate engage]!
+
+## Contributing<a name="contributing"></a>
+
+You want to contribute to this project? That's cool!
+
+Please make sure to read the [Contribution Guidelines].\
+(I promise, it's not much, just some basics)
+
+<!-- Links -->
+
+[changelog.md]: https://github.com/ppfeufer/aa-permission-management/blob/master/CHANGELOG.md "CHANGELOG.md"
+[contribution guidelines]: https://github.com/ppfeufer/aa-permission-management/blob/master/CONTRIBUTING.md "Contribution Guidelines"
+[weblate engage]: https://weblate.ppfeufer.de/engage/alliance-auth-apps/
