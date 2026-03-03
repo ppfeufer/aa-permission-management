@@ -54,10 +54,8 @@ urls.GitHub = "https://github.com/ppfeufer/aa-permission-management"
 urls.Tracker = "https://github.com/ppfeufer/aa-permission-management/issues"
 urls.Translation = "https://weblate.ppfeufer.de/projects/alliance-auth-apps/aa-permission-management/"
 
-[tool.hatch.build]
-include = [
+[tool.hatch]
+build.include = [
     "/aa_permission_management",
 ]
-
-[tool.hatch.version]
-path = "aa_permission_management/__init__.py"
+version.path = "aa_permission_management/__init__.py"
