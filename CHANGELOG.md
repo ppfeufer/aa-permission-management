@@ -42,9 +42,11 @@ Section Order:
 
 <!-- Your changes go here -->
 
+## [0.0.2] - 2026-03-11
+
 ### Changed
 
-- Move away from `django.utils.datetime_safe` in preparation for Django 5
+- Move away from `django.utils.datetime_safe` in preparation for Alliance Auth v5
 
 ## [0.0.1] - 2026-03-03
 
@@ -53,6 +55,7 @@ Initial Release
 <!-- Links to be updated upon release -->
 
 [0.0.1]: https://github.com/ppfeufer/aa-permission-management/commits/v0.0.1 "v0.0.1"
-[in development]: https://github.com/ppfeufer/aa-permission-management/compare/v0.0.1...HEAD "In Development"
+[0.0.2]: https://github.com/ppfeufer/aa-permission-management/compare/v0.0.1...v0.0.2 "v0.0.2"
+[in development]: https://github.com/ppfeufer/aa-permission-management/compare/v0.0.2...HEAD "In Development"
 [keep a changelog]: http://keepachangelog.com/ "Keep a Changelog"
 [semantic versioning]: http://semver.org/ "Semantic Versioning"
