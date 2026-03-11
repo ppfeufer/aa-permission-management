@@ -42,6 +42,10 @@ Section Order:
 
 <!-- Your changes go here -->
 
+### Changed
+
+- Move away from `django.utils.datetime_safe` in preparation for Django 5
+
 ## [0.0.1] - 2026-03-03
 
 Initial Release
