@@ -10,7 +10,6 @@ import re
 from django.contrib.auth.models import User
 from django.utils import timezone
 from django.utils.crypto import get_random_string
-from django.utils.datetime_safe import datetime
 
 # Alliance Auth
 from allianceauth.authentication.models import CharacterOwnership
@@ -53,9 +52,9 @@ def _store_as_Token(token: dict, user: object) -> Token:
     return obj
 
 
-def dt_eveformat(my_dt: datetime) -> str:
+def dt_eveformat(my_dt: dt.datetime) -> str:
     """
-    converts a datetime to a string in eve format
+    converts a dt.datetime to a string in eve format
 
     :param my_dt:
     :type my_dt:
@@ -63,7 +62,7 @@ def dt_eveformat(my_dt: datetime) -> str:
     :rtype:
     """
 
-    my_dt_2 = datetime(
+    my_dt_2 = dt.datetime(
         my_dt.year, my_dt.month, my_dt.day, my_dt.hour, my_dt.minute, my_dt.second
     )
 
@@ -109,7 +108,7 @@ def _generate_token(
     access_token: str = "access_token",
     refresh_token: str = "refresh_token",
     scopes: list | None = None,
-    timestamp_dt: datetime | None = None,
+    timestamp_dt: dt.datetime | None = None,
     expires_in: int = 1200,
 ) -> dict:
     """
