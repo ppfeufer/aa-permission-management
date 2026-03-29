@@ -2,26 +2,28 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # Languages add-on <noreply-addon-languages@weblate.org>, 2026.
+# Peter Pfeufer <info@ppfeufer.de>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: AA Permission Management 0.0.1a1\n"
 "Report-Msgid-Bugs-To: https://github.com/ppfeufer/aa-permission-management/issues\n"
 "POT-Creation-Date: 2026-03-11 13:22+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2026-03-21 19:14+0000\n"
+"Last-Translator: Peter Pfeufer <info@ppfeufer.de>\n"
+"Language-Team: Dutch <https://weblate.ppfeufer.de/projects/alliance-auth-apps/aa-permission-management/nl/>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.16.2\n"
 
 #: aa_permission_management/__init__.py:10
 #: aa_permission_management/models.py:28
 #: aa_permission_management/templates/aa_permission_management/base.html:7
 #: aa_permission_management/templates/aa_permission_management/base.html:11
 msgid "Permission Management"
-msgstr ""
+msgstr "Toestemming Management"
 
 #: aa_permission_management/models.py:25
 msgid "Can access the Permission Management module and manage permissions"
