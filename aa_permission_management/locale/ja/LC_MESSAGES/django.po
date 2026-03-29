@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: AA Permission Management 0.0.1a1\n"
 "Report-Msgid-Bugs-To: https://github.com/ppfeufer/aa-permission-management/issues\n"
 "POT-Creation-Date: 2026-03-11 13:22+0100\n"
-"PO-Revision-Date: 2026-02-01 14:23+0000\n"
+"PO-Revision-Date: 2026-03-29 04:03+0000\n"
 "Last-Translator: Peter Pfeufer <info@ppfeufer.de>\n"
 "Language-Team: Japanese <https://weblate.ppfeufer.de/projects/alliance-auth-apps/aa-permission-management/ja/>\n"
 "Language: ja\n"
@@ -16,14 +16,14 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.15.2\n"
+"X-Generator: Weblate 5.16.2\n"
 
 #: aa_permission_management/__init__.py:10
 #: aa_permission_management/models.py:28
 #: aa_permission_management/templates/aa_permission_management/base.html:7
 #: aa_permission_management/templates/aa_permission_management/base.html:11
 msgid "Permission Management"
-msgstr ""
+msgstr "権限管理"
 
 #: aa_permission_management/models.py:25
 msgid "Can access the Permission Management module and manage permissions"

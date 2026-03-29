@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: AA Permission Management 0.0.1a1\n"
 "Report-Msgid-Bugs-To: https://github.com/ppfeufer/aa-permission-management/issues\n"
 "POT-Creation-Date: 2026-03-11 13:22+0100\n"
-"PO-Revision-Date: 2026-02-01 14:23+0000\n"
+"PO-Revision-Date: 2026-03-21 19:14+0000\n"
 "Last-Translator: Peter Pfeufer <info@ppfeufer.de>\n"
 "Language-Team: French <https://weblate.ppfeufer.de/projects/alliance-auth-apps/aa-permission-management/fr/>\n"
 "Language: fr\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.15.2\n"
+"X-Generator: Weblate 5.16.2\n"
 
 #: aa_permission_management/__init__.py:10
 #: aa_permission_management/models.py:28
@@ -87,7 +87,7 @@ msgstr ""
 
 #: aa_permission_management/templates/aa_permission_management/views/dashboard.html:105
 msgid "Loading …"
-msgstr ""
+msgstr "Chargement …"
 
 #: aa_permission_management/templates/aa_permission_management/views/dashboard.html:131
 msgid "Search"
