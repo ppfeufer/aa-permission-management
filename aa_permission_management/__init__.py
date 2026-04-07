@@ -5,7 +5,7 @@ App init
 # Django
 from django.utils.translation import gettext_lazy as _
 
-__version__ = "0.0.2"
+__version__ = "0.0.3"
 __title__ = "Permission Management"
 __title_translated__ = _("Permission Management")
 __verbose_name__ = "Simple Permission Management for Alliance Auth"
