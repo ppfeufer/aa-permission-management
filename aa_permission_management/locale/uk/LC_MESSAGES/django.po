@@ -8,16 +8,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: AA Permission Management 0.0.1a1\n"
 "Report-Msgid-Bugs-To: https://github.com/ppfeufer/aa-permission-management/issues\n"
-"POT-Creation-Date: 2026-03-11 13:22+0100\n"
-"PO-Revision-Date: 2026-02-23 05:23+0000\n"
-"Last-Translator: Peter Pfeufer <info@ppfeufer.de>\n"
+"POT-Creation-Date: 2026-04-07 19:30+0200\n"
+"PO-Revision-Date: 2026-03-28 21:16+0000\n"
+"Last-Translator: s0k0l -_- <salarysalo@gmail.com>\n"
 "Language-Team: Ukrainian <https://weblate.ppfeufer.de/projects/alliance-auth-apps/aa-permission-management/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.16\n"
+"X-Generator: Weblate 5.16.2\n"
 
 #: aa_permission_management/__init__.py:10
 #: aa_permission_management/models.py:28
@@ -31,24 +31,20 @@ msgid "Can access the Permission Management module and manage permissions"
 msgstr "Має доступ до модуля керування дозволами та може керувати дозволами"
 
 #: aa_permission_management/templates/aa_permission_management/partials/ajax/permissions.html:4
-#, fuzzy
-#| msgid "Show/Edit permissions"
 msgid "Select permissions"
-msgstr "Показати/редагувати дозволи"
+msgstr "Обрати дозволи"
 
 #: aa_permission_management/templates/aa_permission_management/partials/ajax/permissions.html:29
 msgid "Save"
-msgstr ""
+msgstr "Зберегти"
 
 #: aa_permission_management/templates/aa_permission_management/partials/ajax/permissions.html:35
-#, fuzzy
-#| msgid "Permissions"
 msgid "Permissions updated."
-msgstr "Дозволи"
+msgstr "Дозволи оновлено."
 
 #: aa_permission_management/templates/aa_permission_management/partials/ajax/permissions.html:39
 msgid "There may have been an issue with the update."
-msgstr ""
+msgstr "Могла статись прикра помилка при оновленні."
 
 #: aa_permission_management/templates/aa_permission_management/partials/datatables/edit-permission.html:5
 msgid "Show/Edit permissions"
@@ -68,7 +64,7 @@ msgstr "Назва групи"
 
 #: aa_permission_management/templates/aa_permission_management/views/dashboard.html:9
 msgid "State name"
-msgstr ""
+msgstr "Назва країни"
 
 #: aa_permission_management/templates/aa_permission_management/views/dashboard.html:10
 msgid "Member count"
@@ -76,7 +72,7 @@ msgstr "Кількість мемберів"
 
 #: aa_permission_management/templates/aa_permission_management/views/dashboard.html:11
 msgid "Groups and states"
-msgstr ""
+msgstr "Групи та країни"
 
 #: aa_permission_management/templates/aa_permission_management/views/dashboard.html:12
 msgid "Permissions"
@@ -92,20 +88,16 @@ msgstr "Стани"
 
 #: aa_permission_management/templates/aa_permission_management/views/dashboard.html:105
 msgid "Loading …"
-msgstr ""
+msgstr "Завантажуємо…"
 
 #: aa_permission_management/templates/aa_permission_management/views/dashboard.html:131
 msgid "Search"
-msgstr ""
+msgstr "Пошук"
 
 #: aa_permission_management/templates/aa_permission_management/views/dashboard.html:132
-#, fuzzy
-#| msgid "Groups"
 msgid "Group"
-msgstr "Групи"
+msgstr "Група"
 
 #: aa_permission_management/templates/aa_permission_management/views/dashboard.html:133
-#, fuzzy
-#| msgid "States"
 msgid "State"
-msgstr "Стани"
+msgstr "Стан"
