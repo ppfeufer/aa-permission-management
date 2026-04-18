@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: AA Permission Management 0.0.1a1\n"
 "Report-Msgid-Bugs-To: https://github.com/ppfeufer/aa-permission-management/issues\n"
 "POT-Creation-Date: 2026-04-07 19:30+0200\n"
-"PO-Revision-Date: 2026-03-21 19:14+0000\n"
+"PO-Revision-Date: 2026-04-18 04:23+0000\n"
 "Last-Translator: Peter Pfeufer <info@ppfeufer.de>\n"
 "Language-Team: Dutch <https://weblate.ppfeufer.de/projects/alliance-auth-apps/aa-permission-management/nl/>\n"
 "Language: nl\n"
@@ -55,7 +55,7 @@ msgstr ""
 
 #: aa_permission_management/templates/aa_permission_management/partials/footer/app-translation-footer.html:8
 msgid "Join our team of translators!"
-msgstr ""
+msgstr "Kom ons team van vertalers versterken!"
 
 #: aa_permission_management/templates/aa_permission_management/views/dashboard.html:8
 msgid "Group name"
