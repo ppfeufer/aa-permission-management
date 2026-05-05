@@ -3,20 +3,21 @@
 # This file is distributed under the same license as the PACKAGE package.
 # Languages add-on <noreply-addon-languages@weblate.org>, 2026.
 # Peter Pfeufer <info@ppfeufer.de>, 2026.
+# Automatic translation add-on <noreply-addon-autotranslate@weblate.org>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: AA Permission Management 0.0.1a1\n"
 "Report-Msgid-Bugs-To: https://github.com/ppfeufer/aa-permission-management/issues\n"
-"POT-Creation-Date: 2026-04-07 19:30+0200\n"
-"PO-Revision-Date: 2026-01-27 23:23+0000\n"
-"Last-Translator: Peter Pfeufer <info@ppfeufer.de>\n"
+"POT-Creation-Date: 2026-05-05 17:03+0200\n"
+"PO-Revision-Date: 2026-05-04 20:50+0000\n"
+"Last-Translator: Automatic translation add-on <noreply-addon-autotranslate@weblate.org>\n"
 "Language-Team: Czech <https://weblate.ppfeufer.de/projects/alliance-auth-apps/aa-permission-management/cs/>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 5.15.2\n"
+"X-Generator: Weblate 5.17.1\n"
 
 #: aa_permission_management/__init__.py:10
 #: aa_permission_management/models.py:28
@@ -59,7 +60,7 @@ msgstr "Připoj se k našemu týmu překladatelů!"
 
 #: aa_permission_management/templates/aa_permission_management/views/dashboard.html:8
 msgid "Group name"
-msgstr ""
+msgstr "Název skupiny"
 
 #: aa_permission_management/templates/aa_permission_management/views/dashboard.html:9
 msgid "State name"
