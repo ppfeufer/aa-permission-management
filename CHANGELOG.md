@@ -43,6 +43,16 @@ Section Order:
 
 <!-- Your changes go here -->
 
+## [0.0.4] - 2026-05-05
+
+### Changed
+
+- Translations updated
+
+### Miscellaneous
+
+- Ready for Alliance Auth v5
+
 ## [0.0.3] - 2026-04-07
 
 ### Changed
@@ -64,6 +74,7 @@ Initial Release
 [0.0.1]: https://github.com/ppfeufer/aa-permission-management/commits/v0.0.1 "v0.0.1"
 [0.0.2]: https://github.com/ppfeufer/aa-permission-management/compare/v0.0.1...v0.0.2 "v0.0.2"
 [0.0.3]: https://github.com/ppfeufer/aa-permission-management/compare/v0.0.2...v0.0.3 "v0.0.3"
-[in development]: https://github.com/ppfeufer/aa-permission-management/compare/v0.0.3...HEAD "In Development"
+[0.0.4]: https://github.com/ppfeufer/aa-permission-management/compare/v0.0.3...v0.0.4 "v0.0.4"
+[in development]: https://github.com/ppfeufer/aa-permission-management/compare/v0.0.4...HEAD "In Development"
 [keep a changelog]: http://keepachangelog.com/ "Keep a Changelog"
 [semantic versioning]: http://semver.org/ "Semantic Versioning"
