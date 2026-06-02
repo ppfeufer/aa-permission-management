@@ -43,6 +43,14 @@ Section Order:
 
 <!-- Your changes go here -->
 
+### Fixed
+
+- Grammar - No space before ellipsis
+
+### Changed
+
+- Modular providers
+
 ## [0.0.4] - 2026-05-05
 
 ### Changed

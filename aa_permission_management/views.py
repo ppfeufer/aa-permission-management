@@ -21,7 +21,6 @@ from allianceauth.groupmanagement.models import AuthGroup
 from allianceauth.services.hooks import get_extension_logger
 
 # AA Permission Management
-from aa_permission_management import __title__
 from aa_permission_management.helper.views import (
     get_all_permissions,
     get_group_permissions,
@@ -29,9 +28,9 @@ from aa_permission_management.helper.views import (
     set_group_permissions,
     set_state_permissions,
 )
-from aa_permission_management.providers import AppLogger
+from aa_permission_management.providers.applogger import AppLogger
 
-logger = AppLogger(my_logger=get_extension_logger(name=__name__), prefix=__title__)
+logger = AppLogger(my_logger=get_extension_logger(name=__name__))
 
 
 @permission_required("aa_permission_management.access_permission_management")
