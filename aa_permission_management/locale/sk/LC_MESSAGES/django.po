@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: AA Permission Management 0.0.1a1\n"
 "Report-Msgid-Bugs-To: https://github.com/ppfeufer/aa-permission-management/issues\n"
-"POT-Creation-Date: 2026-05-05 17:03+0200\n"
+"POT-Creation-Date: 2026-06-02 16:20+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -84,7 +84,7 @@ msgid "States"
 msgstr ""
 
 #: aa_permission_management/templates/aa_permission_management/views/dashboard.html:105
-msgid "Loading …"
+msgid "Loading…"
 msgstr ""
 
 #: aa_permission_management/templates/aa_permission_management/views/dashboard.html:131
