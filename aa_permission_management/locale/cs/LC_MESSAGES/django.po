@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: AA Permission Management 0.0.1a1\n"
 "Report-Msgid-Bugs-To: https://github.com/ppfeufer/aa-permission-management/issues\n"
-"POT-Creation-Date: 2026-05-05 17:03+0200\n"
+"POT-Creation-Date: 2026-06-02 16:20+0200\n"
 "PO-Revision-Date: 2026-05-04 20:50+0000\n"
 "Last-Translator: Automatic translation add-on <noreply-addon-autotranslate@weblate.org>\n"
 "Language-Team: Czech <https://weblate.ppfeufer.de/projects/alliance-auth-apps/aa-permission-management/cs/>\n"
@@ -87,7 +87,7 @@ msgid "States"
 msgstr ""
 
 #: aa_permission_management/templates/aa_permission_management/views/dashboard.html:105
-msgid "Loading …"
+msgid "Loading…"
 msgstr ""
 
 #: aa_permission_management/templates/aa_permission_management/views/dashboard.html:131
