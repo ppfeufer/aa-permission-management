@@ -43,9 +43,16 @@ Section Order:
 
 <!-- Your changes go here -->
 
+## [1.1.0] - 2026-07-07
+
+### Added
+
+- Support for Python 3.14
+
 ### Changed
 
 - Use AA's new proxy models
+- Translations updated
 
 ## [1.0.0] - 2026-06-07
 
@@ -105,6 +112,7 @@ Initial Release
 [0.0.4]: https://github.com/ppfeufer/aa-permission-management/compare/v0.0.3...v0.0.4 "v0.0.4"
 [0.0.5]: https://github.com/ppfeufer/aa-permission-management/compare/v0.0.4...v0.0.5 "v0.0.5"
 [1.0.0]: https://github.com/ppfeufer/aa-permission-management/compare/v0.0.5...v1.0.0 "v1.0.0"
-[in development]: https://github.com/ppfeufer/aa-permission-management/compare/v1.0.0...HEAD "In Development"
+[1.1.0]: https://github.com/ppfeufer/aa-permission-management/compare/v1.0.0...v1.1.0 "v1.1.0"
+[in development]: https://github.com/ppfeufer/aa-permission-management/compare/v1.1.0...HEAD "In Development"
 [keep a changelog]: http://keepachangelog.com/ "Keep a Changelog"
 [semantic versioning]: http://semver.org/ "Semantic Versioning"
