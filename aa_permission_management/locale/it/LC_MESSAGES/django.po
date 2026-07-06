@@ -3,12 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # Languages add-on <noreply-addon-languages@weblate.org>, 2026.
 # Peter Pfeufer <info@ppfeufer.de>, 2026.
+# Alexander <alex301298@live.it>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: AA Permission Management 0.0.1a1\n"
 "Report-Msgid-Bugs-To: https://github.com/ppfeufer/aa-permission-management/issues\n"
-"POT-Creation-Date: 2026-06-02 16:20+0200\n"
-"PO-Revision-Date: 2026-02-01 14:23+0000\n"
+"POT-Creation-Date: 2026-07-07 00:16+0200\n"
+"PO-Revision-Date: 2026-07-06 22:22+0000\n"
 "Last-Translator: Peter Pfeufer <info@ppfeufer.de>\n"
 "Language-Team: Italian <https://weblate.ppfeufer.de/projects/alliance-auth-apps/aa-permission-management/it/>\n"
 "Language: it\n"
@@ -16,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.15.2\n"
+"X-Generator: Weblate 2026.7\n"
 
 #: aa_permission_management/__init__.py:10
 #: aa_permission_management/models.py:28
@@ -51,11 +52,11 @@ msgstr ""
 
 #: aa_permission_management/templates/aa_permission_management/partials/footer/app-translation-footer.html:5
 msgid "Do you want to help translate this app into your language or improve the existing translation?"
-msgstr ""
+msgstr "Vuoi contribuire alla traduzione di questa app nella tua lingua o migliorare la traduzione esistente?"
 
 #: aa_permission_management/templates/aa_permission_management/partials/footer/app-translation-footer.html:8
 msgid "Join our team of translators!"
-msgstr ""
+msgstr "Unisciti al nostro team di traduttori!"
 
 #: aa_permission_management/templates/aa_permission_management/views/dashboard.html:8
 msgid "Group name"
