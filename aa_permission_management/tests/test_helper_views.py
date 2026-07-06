@@ -5,15 +5,13 @@ Unit tests for aa_permission_management.helper.views
 # Standard Library
 from unittest.mock import MagicMock, patch
 
-# Django
-from django.contrib.auth.models import Permission
-
 # Alliance Auth
-from allianceauth.authentication.models import State
+from allianceauth.authentication.models import Permission, State
 from allianceauth.groupmanagement.models import AuthGroup
 
 # AA Permission Management
 from aa_permission_management.helper.views import (
+    _get_permissions_to_set,
     get_all_permissions,
     get_group_permissions,
     get_state_permissions,
@@ -194,6 +192,75 @@ class TestSetStatePermissions(BaseTestCase):
         self.assertEqual(set(state.permissions.all()), set())
 
 
+class TestGetPermissionsToSet(BaseTestCase):
+    """
+    Test cases for the internal _get_permissions_to_set helper.
+    """
+
+    def test_converts_model_instances_to_primary_keys(self):
+        """
+        Test that the _get_permissions_to_set function converts model instances to primary keys.
+
+        :return:
+        :rtype:
+        """
+
+        mock_perm1 = MagicMock(pk=10)
+        mock_perm2 = MagicMock(pk=20)
+
+        result = _get_permissions_to_set([mock_perm1, mock_perm2])
+
+        self.assertEqual(result, [10, 20])
+
+    def test_leaves_integer_ids_unchanged(self):
+        """
+        Test that the _get_permissions_to_set function leaves integers unchanged.
+
+        :return:
+        :rtype:
+        """
+
+        result = _get_permissions_to_set([1, 2, 3])
+
+        self.assertEqual(result, [1, 2, 3])
+
+    def test_handles_single_string_input(self):
+        """
+        Test that the _get_permissions_to_set function handles single string input.
+
+        :return:
+        :rtype:
+        """
+
+        result = _get_permissions_to_set("perm")
+
+        self.assertEqual(result, ["perm"])
+
+    def test_handles_bytes_input(self):
+        """
+        Test that the _get_permissions_to_set function handles bytes input.
+
+        :return:
+        :rtype:
+        """
+
+        result = _get_permissions_to_set(b"perm")
+
+        self.assertEqual(result, [b"perm"])
+
+    def test_returns_empty_list_for_empty_iterable(self):
+        """
+        Test that the function returns empty list for empty iterable.
+
+        :return:
+        :rtype:
+        """
+
+        result = _get_permissions_to_set([])
+
+        self.assertEqual(result, [])
+
+
 class TestGetAllPermissions(BaseTestCase):
     """
     Test cases for get_all_permissions function.
@@ -210,7 +277,7 @@ class TestGetAllPermissions(BaseTestCase):
         mock_permissions = ["perm1", "perm2", "perm3"]
 
         with patch(
-            "django.contrib.auth.models.Permission.objects.all",
+            "allianceauth.authentication.models.Permission.objects.all",
             return_value=mock_permissions,
         ):
             result = get_all_permissions()
@@ -226,7 +293,7 @@ class TestGetAllPermissions(BaseTestCase):
         """
 
         with patch(
-            "django.contrib.auth.models.Permission.objects.all", return_value=[]
+            "allianceauth.authentication.models.Permission.objects.all", return_value=[]
         ):
             result = get_all_permissions()
 
