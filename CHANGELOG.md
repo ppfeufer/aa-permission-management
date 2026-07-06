@@ -43,6 +43,10 @@ Section Order:
 
 <!-- Your changes go here -->
 
+### Changed
+
+- Use AA's new proxy models
+
 ## [1.0.0] - 2026-06-07
 
 > [!IMPORTANT]
