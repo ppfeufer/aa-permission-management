@@ -216,6 +216,6 @@ class StatesTableView(PermissionRequiredMixin, DataTablesView):
         :rtype:
         """
 
-        qs = self.model.objects.all().annotate(user_count=Count("userprofile__id"))
+        qs = self.model.objects.all().annotate(user_count=Count("userprofile__pk"))
 
         return qs
