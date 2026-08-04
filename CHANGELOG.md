@@ -43,10 +43,13 @@ Section Order:
 
 <!-- Your changes go here -->
 
+## [1.2.0] - 2026-08-04
+
 ### Changed
 
 - Use `pk` instead of `id` when referring to the primary key of a model instance, since `id` is not guaranteed to be the primary key in Django.
 - CSS modernized (If you have an older browser that can't handle the new CSS, update your browser…)
+- Translations updated
 
 ## [1.1.0] - 2026-07-07
 
@@ -118,6 +121,7 @@ Initial Release
 [0.0.5]: https://github.com/ppfeufer/aa-permission-management/compare/v0.0.4...v0.0.5 "v0.0.5"
 [1.0.0]: https://github.com/ppfeufer/aa-permission-management/compare/v0.0.5...v1.0.0 "v1.0.0"
 [1.1.0]: https://github.com/ppfeufer/aa-permission-management/compare/v1.0.0...v1.1.0 "v1.1.0"
-[in development]: https://github.com/ppfeufer/aa-permission-management/compare/v1.1.0...HEAD "In Development"
+[1.2.0]: https://github.com/ppfeufer/aa-permission-management/compare/v1.1.0...v1.2.0 "v1.2.0"
+[in development]: https://github.com/ppfeufer/aa-permission-management/compare/v1.2.0...HEAD "In Development"
 [keep a changelog]: http://keepachangelog.com/ "Keep a Changelog"
 [semantic versioning]: http://semver.org/ "Semantic Versioning"
