@@ -1,5 +1,6 @@
 {
-    "name": "aa-permission-management",
+    "name": "@ppfeufer/aa-permission-management",
+    "version": "1.2.0",
     "type": "module",
     "devDependencies": {
         "@eslint/js": "^10.0.1",
