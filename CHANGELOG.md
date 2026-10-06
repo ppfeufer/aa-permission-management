@@ -43,6 +43,12 @@ Section Order:
 
 <!-- Your changes go here -->
 
+## [1.2.1] - 2026-10-06
+
+### Changed
+
+- Translations updated
+
 ## [1.2.0] - 2026-08-04
 
 ### Changed
@@ -122,6 +128,7 @@ Initial Release
 [1.0.0]: https://github.com/ppfeufer/aa-permission-management/compare/v0.0.5...v1.0.0 "v1.0.0"
 [1.1.0]: https://github.com/ppfeufer/aa-permission-management/compare/v1.0.0...v1.1.0 "v1.1.0"
 [1.2.0]: https://github.com/ppfeufer/aa-permission-management/compare/v1.1.0...v1.2.0 "v1.2.0"
-[in development]: https://github.com/ppfeufer/aa-permission-management/compare/v1.2.0...HEAD "In Development"
+[1.2.1]: https://github.com/ppfeufer/aa-permission-management/compare/v1.2.0...v1.2.1 "v1.2.1"
+[in development]: https://github.com/ppfeufer/aa-permission-management/compare/v1.2.1...HEAD "In Development"
 [keep a changelog]: http://keepachangelog.com/ "Keep a Changelog"
 [semantic versioning]: http://semver.org/ "Semantic Versioning"
