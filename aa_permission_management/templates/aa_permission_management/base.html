@@ -1,7 +1,6 @@
 {% extends "allianceauth/base-bs5.html" %}
 
-{% load aa_i18n %}
-{% load i18n %}
+{% load aa_i18n i18n %}
 
 {% block page_title %}
     {% translate "Permission Management" %}
@@ -67,7 +66,7 @@
                 };
             </script>
 
-            {% block aa_permission_management_body %}{% endblock aa_permission_management_body %}
+            {% block aa_permission_management_body %}{% endblock %}
         </div>
 
         <div class="aa-permission-management-footer mt-3 pt-3 border-top border-light">
