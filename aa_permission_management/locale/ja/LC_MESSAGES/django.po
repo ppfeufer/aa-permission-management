@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: AA Permission Management\n"
 "Report-Msgid-Bugs-To: https://weblate.ppfeufer.de/projects/alliance-auth-apps/aa-permission-management/\n"
-"POT-Creation-Date: 2026-10-06 13:59+0200\n"
+"POT-Creation-Date: 2026-10-09 12:27+0200\n"
 "PO-Revision-Date: 2026-07-06 22:22+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Japanese <https://weblate.ppfeufer.de/projects/alliance-auth-apps/aa-permission-management/ja/>\n"
@@ -20,8 +20,8 @@ msgstr ""
 
 #: aa_permission_management/__init__.py:10
 #: aa_permission_management/models.py:28
-#: aa_permission_management/templates/aa_permission_management/base.html:7
-#: aa_permission_management/templates/aa_permission_management/base.html:11
+#: aa_permission_management/templates/aa_permission_management/base.html:6
+#: aa_permission_management/templates/aa_permission_management/base.html:10
 msgid "Permission Management"
 msgstr "権限管理"
 
@@ -29,19 +29,19 @@ msgstr "権限管理"
 msgid "Can access the Permission Management module and manage permissions"
 msgstr ""
 
-#: aa_permission_management/templates/aa_permission_management/partials/ajax/permissions.html:4
+#: aa_permission_management/templates/aa_permission_management/partials/ajax/permissions.html:3
 msgid "Select permissions"
 msgstr ""
 
-#: aa_permission_management/templates/aa_permission_management/partials/ajax/permissions.html:29
+#: aa_permission_management/templates/aa_permission_management/partials/ajax/permissions.html:28
 msgid "Save"
 msgstr ""
 
-#: aa_permission_management/templates/aa_permission_management/partials/ajax/permissions.html:35
+#: aa_permission_management/templates/aa_permission_management/partials/ajax/permissions.html:34
 msgid "Permissions updated."
 msgstr ""
 
-#: aa_permission_management/templates/aa_permission_management/partials/ajax/permissions.html:39
+#: aa_permission_management/templates/aa_permission_management/partials/ajax/permissions.html:38
 msgid "There may have been an issue with the update."
 msgstr ""
 
