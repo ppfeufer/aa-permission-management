@@ -7,6 +7,11 @@ $(document).ready(() => {
     const permissionManagamentSettings = typeof permissionManagamentSettingsOverrides !== 'undefined'
         ? objectDeepMerge(permissionManagamentSettingsDefaults, permissionManagamentSettingsOverrides) // jshint ignore: line
         : permissionManagamentSettingsDefaults;
+    const dtColumn = {
+        name: 0,
+        count: 1,
+        action: 2
+    };
 
     /**
      * Bootstrap tooltip
@@ -138,11 +143,11 @@ $(document).ready(() => {
     // ColumnControl configuration to remove controls from specific columns
     const removeColumnControl = [
         {
-            target: 0,
+            target: dtColumn.name,
             content: []
         },
         {
-            target: 1,
+            target: dtColumn.count,
             content: []
         }
     ];
@@ -156,18 +161,19 @@ $(document).ready(() => {
      * @return {DataTable} DataTable instance
      * @private
      */
-    const _createDataTable = ({
-        selector, ajaxUrl, initComplete = () => {}
-    }) => {
+    const _createDataTable = ({selector, ajaxUrl, initComplete = () => {}}) => {
         const columnDefs = [
             {
-                targets: [1, 2],
+                targets: [
+                    dtColumn.count,
+                    dtColumn.action
+                ],
                 sortable: false,
                 searchable: false,
                 columnControl: removeColumnControl
             },
             {
-                target: 2,
+                target: dtColumn.action,
                 class: 'text-end'
             }
         ];
@@ -179,7 +185,7 @@ $(document).ready(() => {
                 error: (xhr, error) => console.error(`Error loading data for table ${selector}:`, xhr, error)
             },
             columnDefs,
-            order: [[0, 'asc']],
+            order: [[dtColumn.name, 'asc']],
             initComplete: initComplete
         });
     };
